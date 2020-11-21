@@ -1,5 +1,6 @@
 import React from 'react';
 import {Route, Switch} from 'react-router-dom';
+import Header from './Header';
 import StreamCreate from './streams/StreamCreate';
 import StreamEdit from './streams/StreamEdit';
 import StreamShow from './streams/StreamShow';
@@ -9,7 +10,8 @@ import StreamList from './streams/StreamList';
 
 function App(): JSX.Element {
   return (
-    <div>
+    <div className='ui container'>
+      <Header />
       <Switch> 
         <Route exact path='/' render={() => <StreamList />} /> 
         <Route exact path='/streams/new' render={() => <StreamCreate />} /> 
