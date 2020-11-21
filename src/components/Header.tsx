@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {Menu} from 'semantic-ui-react';
+import GoogleAuth from './GoogleAuth';
 
 function Header(): JSX.Element {
   return (
@@ -14,7 +15,10 @@ function Header(): JSX.Element {
           </Menu.Item>
         <Menu.Menu position='right'>
           <Menu.Item>
-            <Link to='/'>Log In</Link>
+            <Link to='/'>Log In</Link>  
+          </Menu.Item>
+          <Menu.Item>
+            <GoogleAuth />
           </Menu.Item>
         </Menu.Menu>
       </Menu>
