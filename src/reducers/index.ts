@@ -1,5 +1,6 @@
 import { combineReducers} from 'redux';
 import { authReducers } from './authReducers';
+import { reducer as formReducer} from 'redux-form';
 
 export interface UserState {
   auth:{
@@ -8,6 +9,7 @@ export interface UserState {
   }
 }
 
-export const reducers =  combineReducers<UserState>({
-  auth: authReducers
+export const reducers = combineReducers({
+  auth: authReducers,
+  form: formReducer
 })
