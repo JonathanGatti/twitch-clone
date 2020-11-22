@@ -28,7 +28,8 @@ function GoogleAuth(props: Props): JSX.Element {
   },[])
 
   const onAuthChange = (isSignedIn: boolean): void => {
-    if(isSignedIn) signInAction();
+    let authId = window.gapi.auth2.getAuthInstance().currentUser.get().getId();
+    if(isSignedIn) signInAction(authId);
     else if(!isSignedIn) signOutAction();
   }
   
