@@ -1,6 +1,13 @@
 import { combineReducers} from 'redux';
 import { authReducers } from './authReducers';
 
-export const reducers =  combineReducers({
+export interface UserState {
+  auth:{
+    isSignedIn: boolean | undefined;
+    userId: string | null;
+  }
+}
+
+export const reducers =  combineReducers<UserState>({
   auth: authReducers
 })

@@ -15,9 +15,6 @@ function Header(): JSX.Element {
           </Menu.Item>
         <Menu.Menu position='right'>
           <Menu.Item>
-            <Link to='/'>Log In</Link>  
-          </Menu.Item>
-          <Menu.Item>
             <GoogleAuth />
           </Menu.Item>
         </Menu.Menu>

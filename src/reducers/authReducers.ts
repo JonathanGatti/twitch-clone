@@ -4,7 +4,7 @@ interface Action {
   type: string,
   payload: string
 }
-interface UserState {
+export interface Auth {
   isSignedIn: boolean | undefined,
   userId: string | null
 }
@@ -13,7 +13,10 @@ const initialState = {
   userId: null
 }
 
-export const authReducers = (state: UserState = initialState , action: Action) => {
+export const authReducers = (
+  state: Auth = initialState,
+  action: Action): 
+  Auth => {
   switch(action.type){
     case SIGN_IN:
       return {...state, isSignedIn: true, userId: action.payload}

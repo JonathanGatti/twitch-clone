@@ -1,17 +1,17 @@
-import { type } from 'os';
 import React, { useEffect } from 'react';
-import {connect} from 'react-redux';
 import { signInAction, signOutAction} from '../actions';
+import { UserState } from '../reducers/index';
+import { connect } from 'react-redux';
 
 const clientId = '400044498365-5e4388knj15icbuqtblgusqhiomtl74u.apps.googleusercontent.com';
 
-interface Props  {
+interface AuthProps  {
   isSignedIn: boolean | undefined;
   signInAction: Function;
   signOutAction: Function;
 }
 
-function GoogleAuth(props: Props): JSX.Element {
+function GoogleAuth(props: AuthProps): JSX.Element {
   const {isSignedIn, signInAction, signOutAction} = props;
 
   useEffect(():void => {
@@ -63,12 +63,9 @@ function GoogleAuth(props: Props): JSX.Element {
     </div>
   )
 }
-interface UserState {
-  isSignedIn: boolean | undefined,
-  auth: any
-}
 
-const mapStateToProps = (state: UserState): { isSignedIn: boolean } => {
+
+const mapStateToProps = (state: UserState): { isSignedIn: boolean | undefined} => {
   return {isSignedIn : state.auth.isSignedIn }
 }
 export default connect(mapStateToProps, {signInAction, signOutAction})(GoogleAuth);
