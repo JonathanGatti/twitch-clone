@@ -1,19 +1,18 @@
 {
-  "posts": [
+  "streams": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "title": "",
+      "description": ""
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "title": "s",
+      "description": "s",
+      "id": 0.19169045949662133
+    },
+    {
+      "title": "Rocco le sfonda tutte",
+      "description": "Rocco fa quello che sa fare meglio",
+      "id": 0.08230175397732609
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

@@ -38,8 +38,11 @@ function StreamCreate(props: any): JSX.Element{
   }
 
   const onSubmit = (formValues: formValues): void => {
-    axios.post('http://localhost:3000/users',{
-      formValues
+    console.log(formValues);
+    axios.post('http://localhost:8000/streams',{
+      title: formValues.title,
+      description: formValues.description,
+      id: Math.random(),
     })
   };
   return (
