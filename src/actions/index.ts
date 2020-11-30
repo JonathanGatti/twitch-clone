@@ -1,7 +1,7 @@
 import streams from '../api/streams';
 import {formValues} from '../interfaces/interfaces';
 
-import { SIGN_IN, SIGN_OUT} from './types';
+import { SIGN_IN, SIGN_OUT, CREATE_STREAM} from './types';
 interface SignAction {
   type: string,
   payload: string
@@ -23,6 +23,8 @@ export const signOutAction = (): SignAction => {
 
 export const createStream = (formValues: formValues ) => {
   return async (dispatch: any) => {
-    streams.post('/streams', formValues);
+    const res = await streams.post('/streams', formValues);
+
+    dispatch({type: CREATE_STREAM, payload: res.data})
   }
 }
