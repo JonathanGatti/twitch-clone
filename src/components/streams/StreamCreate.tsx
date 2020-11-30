@@ -1,5 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
+import axios from 'axios';
 
 interface formValues {
   title: string;
@@ -37,8 +38,10 @@ function StreamCreate(props: any): JSX.Element{
   }
 
   const onSubmit = (formValues: formValues): void => {
-    
-  }
+    axios.post('http://localhost:3000/users',{
+      formValues
+    })
+  };
   return (
     <div>
       <form onSubmit={props.handleSubmit(onSubmit)} className='ui form error'>
