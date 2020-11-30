@@ -50,7 +50,7 @@ function StreamCreate(props: any): JSX.Element{
   )
 }
 
-const validate = (formValues: formValues): {}  => {
+const validate = (formValues: formValues): {[key: string]: any}  => {
   const errors: Errors = {};
   if(!formValues.title) {
     errors.title = 'You must enter a title';
