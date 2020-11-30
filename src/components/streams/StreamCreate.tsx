@@ -1,19 +1,11 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import axios from 'axios';
-
-interface formValues {
-  title: string;
-  description: string;
-}
-
-interface Errors {
-  title?: string;
-  description?: string;
-}
+import {formValues, Errors} from '../../interfaces/interfaces';
+import {connect} from 'react-redux';
+import {createStream} from '../../actions';
 
 function StreamCreate(props: any): JSX.Element{
-
+  const {createStream} = props;
   const renderError = ({error, touched}: any): JSX.Element => {
     if(touched && error){
       return (
@@ -38,12 +30,7 @@ function StreamCreate(props: any): JSX.Element{
   }
 
   const onSubmit = (formValues: formValues): void => {
-    console.log(formValues);
-    axios.post('http://localhost:8000/streams',{
-      title: formValues.title,
-      description: formValues.description,
-      id: Math.random(),
-    })
+    createStream(formValues);
   };
   return (
     <div>
@@ -66,7 +53,9 @@ const validate = (formValues: formValues): {[key: string]: any}  => {
   }
   return errors;
 } 
-export default reduxForm({
+const formWrapped = reduxForm({
   form: 'streamCreate',
   validate: validate,
 })(StreamCreate);
+
+export default connect(null, {createStream})(formWrapped);

@@ -3,13 +3,13 @@ import axios from 'axios';
 
 function StreamList(): JSX.Element{
   const fetchData = () => {
-    // axios.get('http://localhost:8000/')
-    // .then((res: any) => {
-    //   console.log(res.data);
-    // })
-    // .catch((e: Error) => {
-    //   console.log(e)
-    // });
+    axios.get('http://localhost:8000/streams')
+    .then((res: any) => {
+      console.log(res.data);
+    })
+    .catch((e: Error) => {
+      console.log(e)
+    });
   }
   useEffect(() => {
     fetchData();
