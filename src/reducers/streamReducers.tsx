@@ -11,8 +11,10 @@ import { StreamAction } from '../interfaces/interfaces';
 
 
 
-export default (state = {}, action: StreamAction) => {
+export const streamReducer = (state = {}, action: any) => {
   switch(action.type){
+    case FETCH_STREAMS:
+      return { ...state, ..._.mapKeys(action.payload, 'id') };
     case FETCH_STREAM:
       return { ...state, [action.payload.id]: action.payload};
     case CREATE_STREAM:
@@ -23,6 +25,6 @@ export default (state = {}, action: StreamAction) => {
     case DELETE_STREAM:
       return _.omit(state, action.payload);
     default:
-      state;
+      return state;
   }
 }
