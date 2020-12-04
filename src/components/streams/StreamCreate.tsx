@@ -4,7 +4,13 @@ import {formValues, Errors} from '../../interfaces/interfaces';
 import {connect} from 'react-redux';
 import {createStream} from '../../actions';
 
+interface StreamCreateProps {
+  createStream: (args: formValues) => void;
+  handleSubmit: (args: () => void) => void;
+}
+
 function StreamCreate(props: any): JSX.Element{
+
   const {createStream} = props;
   const renderError = ({error, touched}: any): JSX.Element => {
     if(touched && error){
@@ -43,7 +49,7 @@ function StreamCreate(props: any): JSX.Element{
   )
 }
 
-const validate = (formValues: formValues): {[key: string]: any}  => {
+const validate = (formValues: formValues): Errors  => {
   const errors: Errors = {};
   if(!formValues.title) {
     errors.title = 'You must enter a title';

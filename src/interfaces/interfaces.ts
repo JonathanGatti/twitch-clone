@@ -17,3 +17,7 @@ export interface StreamAction {
   type: string,
   payload: Stream
 }
+
+export interface StreamsObj {
+  streams: Stream[];
+}
