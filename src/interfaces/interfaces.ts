@@ -9,6 +9,7 @@ export interface Errors {
 
 export interface Stream {
   id: number;
+  userId: string;
   title: string;
   description: string;
 }
