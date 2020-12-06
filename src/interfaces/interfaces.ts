@@ -21,4 +21,5 @@ export interface StreamAction {
 
 export interface StreamsObj {
   streams: Stream[];
+  auth: any;
 }
