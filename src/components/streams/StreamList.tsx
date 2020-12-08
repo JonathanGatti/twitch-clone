@@ -6,18 +6,18 @@ import { Stream, StreamsObj } from '../../interfaces/interfaces';
 interface StreamListProps {
   fetchStreams: () => void;
   streams?: Stream[] | undefined;
-  currrentUserId?: string;
+  userId?: any;
 }
 
 function StreamList(props: StreamListProps): JSX.Element {
-  const { fetchStreams, streams, currrentUserId } = props;
+  const { fetchStreams, streams, userId } = props;
 
   useEffect(() => {
     fetchStreams();
   }, []);
 
   const renderAdmin = (stream: Stream) => {
-    if (stream.userId === currrentUserId) {
+    if (stream.userId === userId) {
       return (
         <div className="right floated content">
           <button className="ui button primary">Edit</button>
@@ -57,7 +57,7 @@ function StreamList(props: StreamListProps): JSX.Element {
 const mapStateToProps = (state: StreamsObj): Stream[] | {} => {
   return {
     streams: Object.values(state.streams),
-    currentUserId: state.auth.userId,
+    userId: state.auth.userId,
   };
 };
 
