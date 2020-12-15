@@ -1,25 +1,17 @@
 {
   "streams": [
-    {
-      "title": "Tenet",
-      "description": "No one Knows",
-      "id": 0.19169045949662133
-    },
-    {
-      "title": "The Wolf of Wall Street",
-      "description": "About a wolf in wall street",
-      "id": 0.08230175397732609
-    },
-    {
-      "title": "Charlie and the cocaine factory",
-      "description": "Biography of Charlie Sheen",
-      "id": 1.1916904594966213
-    },
+    
     {
       "title": "I did The this stream",
       "description": "bla bla vla ",
       "userId": "116228337284713520395",
       "id": 2.1916904594966216
+    },
+    {
+      "title": "Navigation",
+      "description": "bring me back to route",
+      "userId": "116228337284713520395",
+      "id": 3.1916904594966216
     }
   ]
 }

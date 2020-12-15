@@ -1,5 +1,6 @@
 import streams from '../api/streams';
 import {formValues} from '../interfaces/interfaces';
+import history from '../history';
 
 import { 
   SIGN_IN, 
@@ -36,6 +37,7 @@ export const createStream = (formValues: formValues ) => {
     const res = await streams.post('/streams', { ...formValues, userId });
 
     dispatch({ type: CREATE_STREAM, payload: res.data })
+    history.push('/');
   }
 }
 
