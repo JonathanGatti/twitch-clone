@@ -1,5 +1,4 @@
-import { isNull } from 'lodash';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { editStream, fetchStream } from '../../actions';
 import { StreamsObj } from '../../interfaces/interfaces';
@@ -19,7 +18,7 @@ function StreamEdit({ stream, match, fetchStream }: any): JSX.Element {
 
   const renderStream = () => {
     if (!stream) {
-      return null;
+      return <div>loading</div>;
     }
     return <div>{stream.title}</div>;
   };
