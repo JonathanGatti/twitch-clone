@@ -1,12 +1,35 @@
-import React from 'react';
+import { isNull } from 'lodash';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { editStream } from '../../actions';
+import { editStream, fetchStream } from '../../actions';
+import { StreamsObj } from '../../interfaces/interfaces';
 
-function StreamEdit(): JSX.Element {
-  return <div>stream edit</div>;
+interface StreamEditProps {
+  stream: StreamsObj;
+  fetchStream: (id: string) => void;
 }
 
-const mapStateToProps = (state: any, ownProps: any) => {
-  return { stream: state.streams[ownProps.match.params.id] };
+function StreamEdit({ stream, match, fetchStream }: any): JSX.Element {
+  useEffect(() => {
+    async function getStreamInEffect() {
+      const res = await fetchStream(match.params.id);
+    }
+    getStreamInEffect();
+  }, []);
+
+  const renderStream = () => {
+    if (!stream) {
+      return null;
+    }
+    return <div>{stream.title}</div>;
+  };
+
+  return <div>{renderStream()}</div>;
+}
+
+const mapStateToProps = (state: StreamsObj, ownProps: any) => {
+  return { stream: state.streams![ownProps.match.params.id] };
 };
-export default connect(mapStateToProps, { editStream })(StreamEdit);
+export default connect(mapStateToProps, { editStream, fetchStream })(
+  StreamEdit
+);

@@ -14,7 +14,11 @@ function App(): JSX.Element {
       <Switch>
         <Route exact path="/" render={() => <StreamList />} />
         <Route exact path="/streams/new" render={() => <StreamCreate />} />
-        <Route exact path="/streams/edit/:id" render={() => <StreamEdit />} />
+        <Route
+          exact
+          path="/streams/edit/:id"
+          render={(routeProps) => <StreamEdit {...routeProps} />}
+        />
         <Route exact path="/streams/delete" render={() => <StreamDelete />} />
         <Route exact path="/streams/show" render={() => <StreamShow />} />
       </Switch>
