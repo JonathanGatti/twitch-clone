@@ -3,7 +3,6 @@ import { Field, reduxForm } from 'redux-form';
 import { formValues, Errors } from '../../interfaces/interfaces';
 
 interface StreamFormProps {
-  createStream: (args: formValues) => void;
   handleSubmit: (args: formValues) => void;
   initialValues?: { title: string; description: string };
 }

@@ -9,7 +9,12 @@ interface StreamEditProps {
   fetchStream: (id: string) => void;
 }
 
-function StreamEdit({ stream, match, fetchStream }: any): JSX.Element {
+function StreamEdit({
+  stream,
+  match,
+  fetchStream,
+  editStream,
+}: any): JSX.Element {
   useEffect(() => {
     async function getStreamInEffect() {
       const res = await fetchStream(match.params.id);
@@ -18,7 +23,7 @@ function StreamEdit({ stream, match, fetchStream }: any): JSX.Element {
   }, []);
 
   const onSubmit = (formValues: formValues) => {
-    console.log(formValues);
+    editStream(stream.id, formValues);
   };
 
   const renderStream = () => {
