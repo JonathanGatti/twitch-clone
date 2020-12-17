@@ -2,9 +2,10 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { formValues, Errors } from '../../interfaces/interfaces';
 
-interface StreamCreateProps {
+interface StreamFormProps {
   createStream: (args: formValues) => void;
-  handleSubmit: (args: () => void) => void;
+  handleSubmit: (args: formValues) => void;
+  initialValues?: { title: string; description: string };
 }
 
 function StreamForm(props: any): JSX.Element {

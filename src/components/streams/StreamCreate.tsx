@@ -1,5 +1,5 @@
 import React from 'react';
-import { formValues, Errors } from '../../interfaces/interfaces';
+import { formValues } from '../../interfaces/interfaces';
 import { connect } from 'react-redux';
 import { createStream } from '../../actions';
 import StreamForm from './StreamForm';

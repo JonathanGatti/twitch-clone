@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { editStream, fetchStream } from '../../actions';
-import { StreamsObj } from '../../interfaces/interfaces';
+import { StreamsObj, formValues } from '../../interfaces/interfaces';
+import StreamForm from './StreamForm';
 
 interface StreamEditProps {
   stream: StreamsObj;
@@ -16,11 +17,26 @@ function StreamEdit({ stream, match, fetchStream }: any): JSX.Element {
     getStreamInEffect();
   }, []);
 
+  const onSubmit = (formValues: formValues) => {
+    console.log(formValues);
+  };
+
   const renderStream = () => {
     if (!stream) {
       return <div>loading</div>;
     }
-    return <div>{stream.title}</div>;
+    return (
+      <div>
+        <h3>Edit a Stream</h3>
+        <StreamForm
+          initialValues={{
+            title: stream.title,
+            description: stream.description,
+          }}
+          onSubmit={onSubmit}
+        />
+      </div>
+    );
   };
 
   return <div>{renderStream()}</div>;
