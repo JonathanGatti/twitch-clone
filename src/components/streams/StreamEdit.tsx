@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { editStream, fetchStream } from '../../actions';
-import { StreamsObj, formValues } from '../../interfaces/interfaces';
+import { StreamsObj, formValues, Stream } from '../../interfaces/interfaces';
 import StreamForm from './StreamForm';
 
 interface StreamEditProps {
-  stream: StreamsObj;
-  fetchStream: (id: string) => void;
+  stream: Stream;
+  match: any;
+  fetchStream: (id: string | string) => void;
+  editStream: (id: number | string, formValues: formValues) => void;
 }
 
 function StreamEdit({

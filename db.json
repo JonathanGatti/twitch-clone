@@ -2,15 +2,9 @@
   "streams": [
     {
       "title": "ciao",
-      "description": "this is the description",
+      "description": "i edited this stream",
       "userId": "116228337284713520395",
       "id": 1
-    },
-    {
-      "title": "come",
-      "description": "bla bla bla ",
-      "userId": "116228337284713520395",
-      "id": 2
     },
     {
       "title": "va",
