@@ -24,7 +24,11 @@ function App(): JSX.Element {
           path="/streams/delete/:id"
           render={(routeProps) => <StreamDelete {...routeProps} />}
         />
-        <Route exact path="/streams/show" render={() => <StreamShow />} />
+        <Route
+          exact
+          path="/streams/:id"
+          render={(routeProps) => <StreamShow {...routeProps} />}
+        />
       </Switch>
     </div>
   );
