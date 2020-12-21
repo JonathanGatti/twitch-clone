@@ -1,7 +1,8 @@
 import React from 'react';
 import Modal from '../Modal';
+import history from '../../history';
 
-function StreamDelete(): JSX.Element {
+function StreamDelete({ match }: any): JSX.Element {
   const actions = (
     <>
       <button className="ui button negative">Delete</button>
@@ -15,6 +16,7 @@ function StreamDelete(): JSX.Element {
         title="Delete Stream"
         content="Are you sure you want to delete this stream?"
         actions={actions}
+        onDismiss={() => history.push('/')}
       />
     </div>
   );
