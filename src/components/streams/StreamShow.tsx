@@ -5,10 +5,7 @@ import { StreamsObj } from '../../interfaces/interfaces';
 
 function StreamShow({ match, stream, fetchStream }: any): JSX.Element {
   useEffect(() => {
-    async function getStreamInEffect() {
-      const res = await fetchStream(match.params.id);
-    }
-    getStreamInEffect();
+    fetchStream(match.params.id);
   }, []);
 
   const render = () => {

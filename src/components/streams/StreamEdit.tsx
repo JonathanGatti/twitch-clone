@@ -16,10 +16,7 @@ function StreamEdit({
   editStream,
 }: any): JSX.Element {
   useEffect(() => {
-    async function getStreamInEffect() {
-      const res = await fetchStream(match.params.id);
-    }
-    getStreamInEffect();
+    fetchStream(match.params.id);
   }, []);
 
   const onSubmit = (formValues: formValues) => {

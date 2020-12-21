@@ -14,10 +14,7 @@ function StreamDelete({
   deleteStream,
 }: any): JSX.Element {
   useEffect(() => {
-    async function getStreamInEffect() {
-      const res = await fetchStream(match.params.id);
-    }
-    getStreamInEffect();
+    fetchStream(match.params.id);
   }, []);
   const actions = (
     <>
