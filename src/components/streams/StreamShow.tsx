@@ -7,7 +7,15 @@ import { StreamsObj } from '../../interfaces/interfaces';
 function StreamShow({ match, stream, fetchStream }: any): JSX.Element {
   const videoRef = React.createRef<HTMLVideoElement>();
   useEffect(() => {
-    fetchStream(match.params.id);
+    const { id } = match.params;
+    fetchStream(id);
+    if (stream) {
+      const player = flv.createPlayer({
+        type: 'flv',
+        url: `http://localhost:8000/live/${id}.flv`,
+      });
+      player.attachMediaElement(videoRef.current!);
+    }
   }, []);
 
   const render = () => {
